@@ -42,7 +42,7 @@ app.get('/comments/new', (req, res) => { // Renders the form
 app.post('/comments', (req, res) => { // Form data is submitted here
     const {username, comment} = req.body;
     comments.push({username, comment})
-    res.send("It Worked!")
+    res.redirect('/comments');
 })
 
 
