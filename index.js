@@ -35,16 +35,26 @@ app.get('/comments', (req, res) => {
     res.render('comments/index', {comments})
 })
 
+app.get('/comments/new', (req, res) => { // Renders the form
+    res.render('comments/new')
+})
+
+app.post('/comments', (req, res) => { // Form data is submitted here
+    const {username, comment} = req.body;
+    comments.push({username, comment})
+    res.send("It Worked!")
+})
+
 
 app.get('/tacos', (req, res)=>{
     res.send("Get /tacos sent");
-  })
+})
   
   app.post("/tacos", (req, res) => {
     const {meat, qty} = req.body;
     res.send(`Ok, here are your ${qty} ${meat} tacos`)
-  })
+})
   
   app.listen(3000, () => {
     console.log("Listening on port 3000")
-  })
+})
