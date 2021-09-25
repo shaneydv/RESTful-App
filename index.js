@@ -8,6 +8,34 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 
+const comments = [
+    {
+        username: "Rahul",
+        comment: "lol that is so funny!"
+    },
+
+    {
+        username: "Arnav",
+        comment: "That is so cool!"
+    },
+
+    {
+        username: "Anupama",
+        comment: "That's offensive."
+    },
+
+    {
+        username: "Riddhima",
+        comment: "Yolo!!!"
+    }
+
+]
+
+app.get('/comments', (req, res) => {
+    res.render('comments/index', {comments})
+})
+
+
 app.get('/tacos', (req, res)=>{
     res.send("Get /tacos sent");
   })
